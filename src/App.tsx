@@ -1653,7 +1653,7 @@ const App = () => {
               selectedWindow === "cli",
             )}`}
           >
-            daniel-code - zsh
+            nishant-code - zsh
             <button
               className="rounded-full p-1 bg-red-500 absolute right-10 top-1/2 -translate-y-1/2"
               onClick={() => setExpandWindow("")}
@@ -2673,7 +2673,7 @@ const App = () => {
                     selectedWindow === "cli",
                   )}`}
                 >
-                  daniel-code - zsh
+                  nishant-code - zsh
                   <button
                     className="rounded-full p-1 bg-red-500 absolute right-10 top-1/2 -translate-y-1/2"
                     onClick={() => setExpandWindow("")}

@@ -1,14 +1,13 @@
 let cachedStats = null;
 let lastFetchTime = 0;
 
-// LeetCode username - update this in src/data/info.ts
 const username = "Nishant-Minerva";
 
-export default async function handler(req, res) {
+export async function onRequest(context) {
   const CACHE_TTL = 1000 * 60 * 60; // 1 hour
 
   if (cachedStats && Date.now() - lastFetchTime < CACHE_TTL) {
-    return res.status(200).json({ ...cachedStats, cached: true });
+    return Response.json({ ...cachedStats, cached: true });
   }
 
   try {
@@ -17,7 +16,7 @@ export default async function handler(req, res) {
     );
 
     if (!response.ok) {
-      throw new Error(`Failed to fetch LeCode stats: ${response.statusText}`);
+      throw new Error(`Failed to fetch LeetCode stats: ${response.statusText}`);
     }
 
     const data = await response.json();
@@ -33,21 +32,19 @@ export default async function handler(req, res) {
     cachedStats = stats;
     lastFetchTime = Date.now();
 
-    res.status(200).json({ ...stats, cached: false });
+    return Response.json({ ...stats, cached: false });
   } catch (error) {
-    console.error("Error fetching LeetCode stats:", error);
-
     if (cachedStats) {
-      return res.status(200).json({
+      return Response.json({
         ...cachedStats,
         cached: true,
         warning: "API error, showing cached data",
       });
     }
 
-    res.status(500).json({
-      error: "Internal Server Error",
-      message: error.message,
-    });
+    return Response.json(
+      { error: "Internal Server Error", message: error.message },
+      { status: 500 }
+    );
   }
 }

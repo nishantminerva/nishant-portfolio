@@ -1,158 +1,98 @@
 // Personal Information - CUSTOMIZE THIS!
 export const personalInfo = {
   // Basic Info
-  name: "Daniel Nguyen",
-  username: "daniel", // Used in terminal display (username@computer)
+  name: "Nishant Kumar",
+  username: "nishant", // Used in terminal display (username@computer)
   computerName: "MacbookPro", // Used in terminal display (username@computer)
-  email: "nguyendaniel1312@gmail.com",
-  title: "Full-Stack",
-  education: "Junior CS @ SJSU",
-  graduationYear: "May 2027",
-  location: "San Jose, CA",
+  email: "nishantminerva@gmail.com",
+  title: "Software Engineer",
+  education: "B.Tech CS, NSEC",
+  graduationYear: "June 2024",
+  location: "India",
 
   // Resume filename (must be in /public folder)
-  resumeFileName: "daniel_nguyen_resume.pdf",
+  resumeFileName: "nishant_kumar_resume.pdf",
 
   // Social Links
   socialLinks: {
-    github: "https://github.com/deeedaniel",
-    linkedin: "https://www.linkedin.com/in/daniel-nguyenn/",
-    spotify: "https://open.spotify.com/user/cringedlol",
-    leetcode: "https://leetcode.com/deeedaniel/",
+    github: "https://github.com/nishantminerva",
+    linkedin: "https://www.linkedin.com/in/nishantminerva",
+    spotify: "",
+    leetcode: "https://leetcode.com/u/Nishant-Minerva/",
   },
 
   // Usernames for API integrations
-  leetcodeUsername: "deeedaniel", // Used in /api/leetcode to fetch your stats
+  leetcodeUsername: "Nishant-Minerva", // Used in /api/leetcode to fetch your stats
 
   // About Me - Each string is a paragraph
   aboutMe: [
     "Hello!",
-    "Welcome to my portfolio, I hope you like it!",
-    "Back in high school, I took AP Computer Science for fun. I thought it was a really fun class, so when applying to colleges, I picked Computer Science as my major not really knowing what it was about. Since then, I have really fell in love with coding.",
-    'The summer before my first year at SJSU, I took an online coding curriculum called <a href="https://www.theodinproject.com/" class="text-blue-300 underline" target="_blank" rel="noopener noreferrer">theodinproject</a>. This was where I built all my fundamentals with utilizing the Terminal, Git, HTML, CSS, and JavaScript.',
-    'I\'m currently in my third year at SJSU, and I\'m expected to graduate in May 2027. I\'m also working part-time as a full-stack developer at <a href="https://twinmind.app/n385?pid=email&c=referral_campaign&deep_link_value=referral&deep_link_sub1=&deep_link_sub2=002f664a-1e10-4e2c-b7cc-61e820ec0081&deep_link_sub3=ios_inapp_share&af_sub1=002f664a-1e10-4e2c-b7cc-61e820ec0081&referrer_name=Daniel&af_dp=thirdear%3A%2F%2Fapp%2Freferral&af_web_dp=https%3A%2F%2Fwww.twinmind.com%2F/" class="text-blue-300 underline" target="_blank" rel="noopener noreferrer">TwinMind</a>.',
-    "Outside of school, I like to film & edit videos, playing basketball, watching movies/shows/anime, and listening to music.",
-    "I'm currently focused on improving my engineering skills to prepare for my upcoming internship at Google!",
+    "Welcome to my portfolio!",
+    "I'm a Software Engineer with deep expertise in iOS development, on-device AI/ML, and mobile platform engineering. I love building products that scale and delight users.",
+    'I\'m currently a founding member of the iOS team at <a href="https://twinmind.app" class="text-blue-300 underline" target="_blank" rel="noopener noreferrer">TwinMind</a>, where I helped scale the product from 2,500 to 350,000+ users, reporting directly to the CTO.',
+    "Before TwinMind, I led iOS development at Xplorazzi, building AI-powered 3D scanning apps with LiDAR and ARKit, and worked on a US FDA-registered physiotherapy wearable at Startoon Labs.",
+    "I graduated with a B.Tech in Computer Science from Netaji Subhash Engineering College, Kolkata with a CGPA of 8.62/10.",
+    "Outside of work, I enjoy exploring new technologies, contributing to open source, and building side projects.",
   ],
 };
 
 export const experiencesData = [
   {
-    title: "Incoming @ Google",
-    window: "Google",
-    date: "Summer 2026",
-    description:
-      "This upcoming Summer I will be joining Google's YouTube Partner Program as a Software Engineer Intern in Mountain View, CA!!",
-    image: "/google.jpg",
-    links: [{ name: "Visit Google", url: "https://google.com" }],
-  },
-  {
-    title: "Full-Stack @ TwinMind",
+    title: "Software Engineer @ TwinMind",
     window: "TwinMind",
-    date: "May-Present, 2025",
+    date: "March 2025 - Present",
     description:
-      "Last summer, I interned as a full-stack developer at TwinMind in Menlo Park, CA. TwinMind is a startup that is building an AI audio recorder that transcribes and summarizes important conversations. I built their web-app from the ground up using Next.js. In the web-app users can upload & record audio files, view past recordings, chat with their recordings, generate AI to-do lists, and more.",
+      "Founding member of the iOS team, reporting directly to the CTO and serving as the primary iOS subject-matter expert. Scaled the product from 2,500 to 350,000+ users.\n\nBuilt real-time speech-to-text transcription pipeline using MLX and on-device ML. Owned end-to-end design and implementation of AI-enhanced workflows including Live Suggestions, Daily Digest, and Memory Q&A. Led experimentation and prompt optimization strategies for LLM-based summarization and contextual inference.\n\nOn the mobile platform side, led onboarding flow, Calendar Sync, To-Do List, and implemented In-App Purchases using StoreKit 2 and RevenueCat. Owned the end-to-end release pipeline, driving 2x faster weekly deployments.",
     image: "/twinmind_team.jpeg",
-    links: [{ name: "Visit TwinMind web-app", url: "https://app.twinmind.com" }],
+    links: [{ name: "Visit TwinMind", url: "https://twinmind.app" }],
   },
   {
-    title: "Web-Dev @ cooledtured",
-    window: "cooledtured",
-    date: "Oct 2024-Apr 2025",
+    title: "iOS Engineer @ Xplorazzi",
+    window: "Xplorazzi",
+    date: "May 2024 - March 2025",
     description:
-      "During my internship at cooledtured, an anime toy store, I worked on an engagement page to survey & quiz users about their favorite anime, shows, and movies. This engagement page was built using React and Firebase. I built the authentication system tracking user's progress with role-based access and implemented the UI for the quiz along with a leaderboard system for each quiz. I also created their onboarding documentation for new developers, including written tutorials and videos.",
-    image: "/cooledtured.jpeg",
-    links: [
-      { name: "Visit engagement page", url: "https://cooledtured.com/engage" },
-    ],
+      "Led the development of xOneAI, an AI-powered 3D object reconstruction app. Designed production-grade 3D scanning using LiDAR and ARKit with well-tested, observable code.\n\nImplemented RoomPlan Scanning and floor plan extraction to generate accurate 3D and 2D layouts. Integrated In-App Purchases with fail-safe transaction handling, focusing on security and receipt validation.\n\nOwned the App Store release process with crash monitoring thresholds and rollout criteria enabling consistent, low-regression weekly deployments.",
+    image: "",
+    links: [],
   },
   {
-    title: "SWE Intern @ SCE",
-    date: "June-July, 2024",
+    title: "iOS Developer Intern @ Startoon Labs",
+    window: "Startoon Labs",
+    date: "Nov 2023 - Dec 2023",
     description:
-      "This was my first ever Software Engineering internship, which was hosted by the Software and Computer Engineering Society at SJSU. I worked alongside a mentor who guided me through basic full-stack development along with Docker containerization. I worked on a web-app where students can find the best professors for their classes based on ratings from ratemyprofessors.com.",
-    image: "/sce.jpg",
-    links: [{ name: "Visit SCE's page", url: "https://sce.sjsu.edu/" }],
+      "Developed the Pheezee app, a companion app for a US FDA-registered physiotherapy biofeedback wearable, enabling real-time range of motion and EMG monitoring across 40+ movements.\n\nImplemented BLE connectivity between the wearable device and the iOS app, ensuring reliable, low-latency data streaming with robust error handling and reconnection logic.\n\nBuilt real-time data visualization dashboards for physiotherapists displaying biofeedback metrics and patient recovery progress.",
+    image: "",
+    links: [],
   },
 ];
 
 export const projectsData = [
   {
-    title: "Fusion, CalHacks 12.0",
-    window: "Fusion",
-    date: "Oct 24-26, 2025",
+    title: "TwinMind AI Features",
+    window: "TwinMind AI",
+    date: "2025",
     description:
-      "At CalHacks 12.0, my group and I created Fusion. Fusion is an MCP-style all-in-one platform for project managers. We used Gemini Pro to power it and created tool calls to integrate GitHub, Jira, Slack, and Notion. With Fusion project managers can view/create/merge PRs, create Jira tasks, send/summarize Slack messages, and view/edit Notion pages.",
-    image: "/fusion.jpg",
-    links: [
-      {
-        name: "Devpost",
-        url: "https://devpost.com/software/fusion-8d6ura",
-      },
-      { name: "GitHub", url: "https://github.com/deeedaniel/fusion" },
-      // { name: "Live Demo", url: "#" },
-    ],
+      "Built real-time speech-to-text transcription pipeline using MLX and on-device ML, powering TwinMind's always-on memory capture with low-latency, privacy-first audio processing. Led experimentation and prompt optimization strategies to improve LLM-based summarization, contextual inference, and context-aware retrieval accuracy.",
+    image: "/twinmind_team.jpeg",
+    links: [{ name: "TwinMind", url: "https://twinmind.app" }],
   },
   {
-    title: "StudyBuddy, 1st @ SCE",
-    window: "StudyBuddy",
-    date: "Sep 5, 2025",
+    title: "xOneAI - 3D Reconstruction",
+    window: "xOneAI",
+    date: "2024",
     description:
-      "At SCE Hacks 1.0 w/ Mintlify, my group and I created StudyBuddy, a web-app designed for students to receive friendly daily SMS reminders about their events and assignments. Created with React, Node.js, Express, OpenAI API, Canvas API, Google OAuth, Node-cron. We won first place overall!",
-    image: "/studybuddy.jpeg",
-    links: [
-      {
-        name: "Devpost",
-        url: "https://devpost.com/software/studybuddy-g1hwqe",
-      },
-      { name: "GitHub", url: "https://github.com/deeedaniel/studybuddy" },
-      // { name: "Live Demo", url: "#" },
-    ],
+      "AI-powered 3D object reconstruction app using LiDAR and ARKit. Implemented RoomPlan Scanning and floor plan extraction for accurate 3D and 2D layouts with reusable modules and unit test coverage.",
+    image: "",
+    links: [],
   },
   {
-    title: "Chillguy.ai, 2nd @ HFH",
-    window: "Chillguy.ai",
-    date: "Feb 15-16, 2025",
+    title: "Pheezee - Physiotherapy Wearable",
+    window: "Pheezee",
+    date: "2023",
     description:
-      "My first ever hackathon experience was at Santa Clara University's annual Hack for Humanity. My team and I built Chillguy.ai, a web-app where users can get proactive mental health calls from an AI assistant. We utilized Eleven Labs and Twilio to create a realistic voice call experience. We ended up winning 2nd place overall!",
-    image: "/chillguy.jpeg",
-    links: [
-      { name: "Devpost", url: "https://devpost.com/software/chillguy-ai" },
-      { name: "GitHub", url: "https://github.com/ibix16/ChillGuy.ai" },
-    ],
-  },
-  {
-    title: "RememberMe, NVIDIA Hack",
-    window: "RememberMe",
-    date: "Oct 14, 2025",
-    description:
-      "At NVIDIA World's Shortest Hackathon, my team and I built RememberMe, a web-app that helps users remember information about people they have met. In just 2 hours, my team and I were able to build a live video feed that sends image data and audio transcription to our backend. Our backend will then process the data, detecting whether it was someone they knew (DeepFace + RetinaFace) and if so returning information about them. It also utilized NVIDIA's Nemotron Super 49B LLMM to extract information from the transcription to be correlated with different people.",
-    image: "/rememberme.jpg",
-    links: [
-      { name: "GitHub", url: "https://github.com/armanbance/RememberMe" },
-    ],
-  },
-  {
-    title: "VIVI, HackDavis",
-    window: "VIVI",
-    date: "Apr 19-20, 2025",
-    description:
-      "From Dec. 2024 to Apr. 2025, I tutored a young neurodivergent student. One particular challenge we faced was that he had difficulty reading, specifically understanding what he was reading and imagining it. \n\nThis gave me the idea to create an AI assistant to assist those having difficulty picturing what they read. At HackDavis, my team and I built this idea. We called it VIVI (visual interpretation for verbal input). We built it using React, Python, Computer Vision, and DALLE-3 image generation. In this web-app, we track user's gaze when they are reading and record their voice. Once they look back at the screen, we generate an image to visualize what they had read.",
-
-    image: "/vivi.png",
-    links: [
-      { name: "Devpost", url: "https://devpost.com/software/vivi-qj6fug" },
-      { name: "GitHub", url: "https://github.com/armanbance/VIVI" },
-    ],
-  },
-  {
-    title: "OfficeTracker, CS151",
-    window: "OfficeTracker",
-    date: "Apr-May, 2025",
-    description:
-      "In my CS151 class, my group and I created OfficeTracker, a desktop app built for faculty members to track their office hour times and scheduled appointments. It follows the MVC design pattern and was built using Java, JavaFX, SceneBuilder, and CSV.",
-    image: "/officetracker.jpg",
-    links: [{ name: "GitHub", url: "https://github.com/NyiHtett/dev-08-0.2" }],
+      "Companion app for a US FDA-registered physiotherapy biofeedback wearable. Real-time BLE connectivity, range of motion and EMG monitoring across 40+ movements, with data visualization dashboards for physiotherapists.",
+    image: "",
+    links: [],
   },
 ];
 
@@ -182,34 +122,6 @@ export const asciiList = [
 ⣿⣿⣿⠟⠁⠀⠀⠀⣿⡀⢀⠀⠀⢀⡨⠷⣦⣀⣀⠀⠀⠉⠛⠻⡦⠭⠷⠏⡼⠛⠋⠁⠀⠀⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿
 ⣩⡿⠋⠀⠀⠀⠀⠀⣹⠷⠼⡖⠚⠁⠀⠀⠀⠀⠀⠙⠲⢤⣶⣤⡘⡆⠀⡜⢁⣀⡄⠀⠀⢀⣀⣠⠖⠋⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠈⣿
 ⠀⠀⠀⠀⠀⣀⣠⠾⠃⠀⠀⠈⠲⢴⡶⠟⠛⢻⡿⠶⠦⣴⡛⠀⠙⣻⣶⠗⠛⣻⡟⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⠀⠀⠀⠀⢹`,
-  //   `
-  // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⠀⠙⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠗⠀⠀⣀⣄⠀⢿⣿⣿⣿⠟⠁⢠⡆⠉⠙⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠀⠀⣴⣿⡟⠀⠘⣿⣿⠋⠀⠀⠀⢠⣶⡀⠈⢻⣿⣿⣿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠀⠀⢠⣿⠛⣶⠀⠀⣿⡟⠀⠀⠀⢠⣿⣿⡇⠀⠠⣽⣿⣿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠅⠀⠀⣿⠏⠀⣿⠀⠀⣿⠁⠀⠀⢠⣿⠟⢻⡇⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⣼⣿⠀⢰⡟⠀⠀⠛⠀⠀⠀⣾⡇⠀⢸⡇⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠿⠃⠀⠈⠀⢀⠀⣀⣀⠀⠘⠟⠀⠀⡾⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠀⠀⠀⢀⠂⠀⠈⠉⢴⣽⣿⠵⣿⡶⣂⣄⡀⠀⠀⢰⣿⣿⣿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⣿⣿⣿⡟⠡⠆⢀⠀⠀⠀⠀⠄⠀⠈⠘⠏⢿⣶⣿⡿⢟⣱⣖⠒⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⡟⣻⠏⣠⠄⠀⢀⡀⠀⠀⠀⠀⠈⠀⠀⠀⢸⣿⢦⠄⠙⣿⡇⠩⣭⣅⠈⢿⣿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣟⣼⡇⠈⢀⣴⠆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠁⠀⢀⠀⠈⠰⣶⡤⠿⠃⢸⣿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⡟⠉⢠⡶⠋⠀⠀⠀⠀⠀⠀⠀⢀⣤⣤⣴⣶⣤⣄⡀⠀⠀⠂⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⡏⢀⡠⠀⠀⠀⠀⠀⠀⠀⢀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣶⣶⣦⣄⠀⠀⠂⠀⠈⣿⣿⣿⣿
-  // ⣿⣿⣿⢃⠈⠀⢠⠀⠀⠀⠀⠀⢠⣿⣿⣿⠿⣩⣏⡙⣛⣛⣿⣿⣿⣿⣿⣿⣿⡿⢇⠀⠀⠄⠀⠘⣿⣿⣿
-  // ⣿⣿⣿⡎⠀⠀⠀⠀⠀⠀⠀⠠⣿⣿⣿⡟⣰⣿⠁⢀⠈⢿⣿⣿⣿⣿⢁⣴⠖⢲⣾⡇⠀⠀⠄⠀⣿⣿⣿
-  // ⣿⣿⣿⢀⠀⠀⠀⠀⠀⠀⠀⠀⣏⢿⣿⡇⣿⡇⠀⠀⠀⣼⣿⣿⣿⡇⣼⡏⠀⠀⣿⡇⠀⠀⠀⠀⣻⣿⣿
-  // ⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⢸⣄⠻⣷⡘⣷⣀⣀⣴⣿⡟⠉⠛⠓⣿⡇⠀⢰⣿⡇⠀⠀⠀⣼⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠙⢷⣌⠻⢿⣿⣿⣿⣿⣿⣦⣶⣿⣾⣧⣤⡾⠏⠀⠀⠀⠀⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⠶⢌⣉⣛⠛⠿⠿⠿⠿⠿⠛⠉⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⣿⣿⣶⣄⠀⠀⠀⠀⠲⠀⠀⠀⠀⠀⠀⠉⠉⠉⠀⠀⠀⠈⠁⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⣿⣿⣿⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⠻⠿⣿⣿⣿⣿⣿
-  // ⣿⣿⣿⣿⣿⣿⣿⡏⠛⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡘⡻⣿⣿
-  // ⣿⣿⣿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⢨⡛⡛⣁⣿
-  // ⣿⣿⣿⣿⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠂⠀⠀⠀⠀⠀⠀⠀⠀⣠⣿⣿⣿
-  // ⣿⣿⣿⣿⠇⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⣄⣠⣴⣾⣿⣿⣿⣿
-
-  // `,
   `
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⠟⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -242,113 +154,26 @@ export const asciiList = [
 ⣾⢿⣾⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠛⠀⠀⠀⠀⠀⠀⠀⠀
 ⢀⣾⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⠀⠀⠀⠀⠀⠀⠀⠀⠀
 `,
-  `
-⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⣼⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⣸⣿⣿⣷⣤⣴⣦⣀⣠⣶⡶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢠⣄⡀⠀⣼⣿⣿⣿⣿⡿⣿⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠘⣿⣿⣿⣿⣿⣿⣿⡾⢛⠋⡛⠻⣿⣿⣿⣿⣧⣴⣶⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⢸⣿⣿⣿⣿⣽⡏⠰⡈⢆⢡⣷⢀⠻⣿⣿⣿⣿⣇⡀⢀⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⢻⣿⣿⣿⣻⣿⠄⢣⠘⡄⢺⡏⢄⢣⡌⠻⣿⣿⣿⣿⣿⣿⣷⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣷⣶⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⣀⣸⣿⣿⣿⣿⣿⡏⢄⠣⢌⣹⠇⡌⣼⢇⠱⡈⠿⣿⣿⣿⡿⠿⠛⠛⠛⠛⠛⠛⠛⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠹⢿⣿⣿⣿⣷⣿⣿⣦⠑⣂⡿⠰⡐⡿⢈⠆⡑⢢⢙⡿⢉⠐⡠⠑⣈⠂⠥⠘⡀⢃⠰⠀⡌⠙⠯⣉⢩⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠈⠹⣿⣿⣿⣽⣿⣷⣜⠏⡰⢱⡟⡠⢊⠔⣡⡿⢁⠂⡡⠄⢡⠠⠌⢠⠁⠒⡈⠄⡡⢀⠃⠤⣹⣿⣿⣿⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠈⣻⣿⣿⣿⣿⣿⣷⣤⠹⢇⠰⡁⢎⣾⠁⠂⡔⠠⠘⡀⢂⠌⠄⠌⠡⡐⢈⡐⠄⢊⣼⣿⣿⣿⣿⣿⡃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠙⠛⠛⢻⣿⣿⣯⣿⣿⣷⣌⠢⠑⢬⡇⠌⠡⠠⠑⢂⢁⢢⡈⠌⡐⠡⠠⢁⡐⠈⢼⣿⣿⣿⣿⡿⢁⢻⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠈⣻⣿⣿⣿⣿⣿⣧⣍⢾⠃⠌⢂⡁⢎⣶⣿⣯⣭⡘⠰⡡⢁⠂⠤⢉⠈⠿⣿⣿⠟⢀⠂⠄⠛⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⡿⡙⢹⣿⣿⣿⣿⣿⣿⠈⠔⠂⢤⣿⣿⣿⣿⣿⣅⠀⠹⠄⡘⢀⢂⠡⠂⢄⠠⢈⠄⠊⠌⡐⢉⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⢰⡇⡇⣾⣿⣿⡿⣿⣿⣿⡈⠄⢃⠘⣿⣿⣿⣿⣿⣿⠀⢠⠃⠄⠃⠄⡂⢉⠄⢂⠡⢈⠌⡐⢈⠄⡘⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⣓⡘⠿⣿⢷⠙⠛⣻⠡⢈⠄⢊⡘⢿⢿⠿⠟⠃⢠⠞⣨⠐⡉⡐⢈⠤⠈⡄⢂⡁⢂⠌⠄⡂⠔⠘⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⣯⠱⢈⠐⠂⢾⣁⣂⣽⣆⠂⣌⣼⠇⠠⢉⠐⡀⠉⠤⢈⠳⠇⡐⠠⢁⠂⡡⠐⡠⠐⠂⠌⡐⠐⡨⠐⠸⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣇⠂⠌⣁⠂⡉⢹⣟⣿⣻⡯⠁⠌⢂⡁⠢⢈⢁⠒⠠⠒⡀⠆⣁⠂⠡⠄⡑⠠⠑⣈⠐⡈⠔⠠⠑⢂⢹⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣧⠌⣀⠒⡈⡐⠻⣮⡷⠃⠌⢂⠡⠠⠑⣀⠊⠄⡑⠠⢁⠂⠤⢈⠁⠆⡐⠡⠌⣀⠂⠡⠌⢂⠡⢂⠘⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢳⣤⠒⠠⠐⠡⣀⠐⡈⠔⡈⠤⠑⡈⠄⠌⡐⢈⡁⢂⠡⠒⡈⠰⠈⢄⡁⠆⠠⠌⠡⣈⠐⡐⡈⠌⣻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢷⡈⠅⠒⡀⢂⠁⠆⠰⠀⡅⠂⠌⠒⡈⠄⠰⠈⢄⠡⠐⠡⠌⢠⠐⡈⢡⠈⠔⡀⠒⢠⠐⡈⣿⡃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠠⢁⠂⢿⡆⠌⡁⢺⠇⡁⢊⠐⣄⠉⠄⠃⡄⠊⠌⡐⠌⡀⠆⡁⢂⠌⡐⠠⠉⠄⢂⠁⣾⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠘⣧⠒⡈⠄⢶⢀⠡⡞⡐⠠⢁⣞⠂⢌⠘⢠⠐⣡⡬⠴⢒⠃⡐⡈⠄⢂⠌⠡⠘⡈⠄⢊⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠹⣧⠀⢀⣤⠾⢷⡐⡈⢼⡆⢸⡇⠡⢘⣼⢳⡿⣦⠈⣤⠿⢁⢂⠁⠆⡈⠔⠠⢁⠊⠄⡡⠡⢐⠈⣼⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡇⢃⢹⡷⠋⢄⠂⠜⠹⢶⠾⢁⠚⢿⡴⠟⢡⣿⠓⠸⣿⠋⡐⠄⢂⠉⡐⡐⠨⠐⠡⡈⢄⡛⢁⠂⣸⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⢰⠀⡂⠿⠈⢄⡈⢂⡁⢂⠐⠂⡌⠠⠐⡈⠴⣿⢀⠡⠘⣆⠰⢈⠂⢡⠐⣀⠃⠡⢒⡼⠋⡐⠈⣴⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⡀⠆⡁⢂⠡⢂⠐⡠⠐⡈⠄⠃⡄⠡⢁⠂⢼⣿⠀⠂⡅⢂⡐⠂⠌⢤⣒⠠⠬⠓⡉⠄⢒⣠⡿⠛⢶⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠷⠶⠶⢧⠶⡶⢶⠶⡷⢶⠾⡶⢶⠷⡶⠾⠼⢿⣠⣁⣐⣠⣀⣉⣒⣰⣂⣦⣥⣖⣴⠮⠿⠳⠶⠾⠴⠿⠿⠿⠳⠶⣦⣀
-⠀⠀⠀⠀
-`,
-  `
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠻⣶⣦⣤⣄⡀⠀⠀⠙⢿⣿⣷⣶⣤⡀⠀⠢⡄⠀⠀⠙⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣷⣶⣬⣻⣿⣿⣿⣿⣷⣤⡙⣦⠀⠀⢹⣿⣿⡄⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠙⠿⣶⣶⣾⣿⣿⣿⣿⠿⢿⣿⣿⣿⣿⣿⣛⡛⠛⠉⠉⠙⠛⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⣎⢧⡀⠀⣿⣿⣷⡈⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠙⠻⣿⣿⣿⣿⣿⣿⣶⣮⣭⣭⣿⣟⣻⣿⣿⣿⣷⣦⣤⣬⣽⣓⡿⣿⣿⣿⣿⣿⣿⣿⣧⠀⣿⣿⣿⡇⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⣿⢿⡛⠛⠛⠛⠿⠿⣿⣿⣿⣿⣿⣇⣿⣿⣿⣧⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⠀⠐⢒⣻⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢿⣟⣛⡛⠛⠛⠛⠛⢻⣿⣷⣶⣶⣶⣦⣽⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⢀⣤⣶⣿⠿⢟⣿⣿⣿⣿⣿⣿⣿⠿⣟⣯⡽⠾⣛⣉⣡⣤⣤⣴⣶⣶⣶⣶⣦⣬⣭⣽⣛⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⡁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⣠⠾⣋⣭⣷⣶⣿⣿⣿⣿⣿⣿⣿⠿⣾⣫⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⠿⠿⠿⠛⠿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠾⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⢟⣛⣯⣯⣤⠦⠤⣒⣀⣀⣤⣤⣤⣤⣶⣶⣶⣶⣿⣿⣿⢻⣿⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠀⠀⠀⣉⣽⣿⣿⣿⣿⣿⣿⣿⢿⣿⠿⣟⣯⣵⣾⣿⣿⣿⣭⣿⣶⠿⠟⠋⢝⣻⣭⣿⣿⣿⣿⣿⢟⣽⣿⣿⠏⣾⣿⣿⣿⣿⣿⣯⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⣠⣴⣾⣿⣿⣿⣿⣿⡿⠛⠉⣠⣤⣷⣿⣿⣿⣿⣿⣿⣿⠟⠛⠉⠀⣠⠴⢚⣩⣵⣾⣯⣿⢿⣿⢫⣾⣿⣿⠟⣼⠿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⣴⠿⠛⣋⣽⣿⣿⣿⣿⣡⣴⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣤⣠⣤⣿⣾⣿⣿⣿⣿⣿⣯⣷⡿⣵⣿⢟⣿⢏⣾⠏⢼⣿⣿⣿⣿⣿⣿⢿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣿⡿⣼⡿⣣⡿⣽⣿⠏⢠⣾⣿⣿⡏⢻⣿⣿⣾⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠟⠋⣿⣿⢟⣼⣿⣾⣿⣇⣴⣿⣿⣿⣿⠃⢸⣿⣿⡏⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⣿⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢻⣟⣉⣉⠙⢻⣶⡀⣼⣿⣧⣾⣿⣿⣿⣟⣽⠟⢻⣿⣿⣿⠀⣼⣿⣿⡇⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⣝⠳⠶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢡⣶⣿⣿⣿⣿⣿⡿⠃⢀⠋⢸⣿⣿⠀⢸⠇⢱⣿⣿⣿⣿⣿⣿⣿⣿⣥⣀⣼⣿⣿⡏⣼⣿⣿⣿⢧⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢈⣶⣾⣿⣿⣿⠿⣿⣿⣿⣿⣿⣿⣿⠘⣿⣿⣿⣿⡟⣽⠁⠀⠈⢷⣤⣉⣁⣠⡀⣠⣾⡿⠟⠛⣿⡿⣟⣵⡯⢈⡏⣿⣿⣿⣷⣿⣿⢋⣿⠘⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢿⡋⠉⠠⡄⣿⢠⣿⣿⣿⣿⣿⣿⣿⣆⣿⣿⣿⡿⢸⠇⠀⠀⠀⠀⠈⠛⠻⠟⠛⠉⠀⠀⣠⠾⠋⢰⢿⡿⠁⡸⠀⣿⣿⣿⣿⣿⡟⣸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠻⣄⠀⢳⣹⣿⣿⣿⣿⣿⣿⣿⣿⠟⣿⣿⣿⠃⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠘⠿⠶⠿⠃⣼⣿⣿⣿⣿⡟⢀⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⠈⢦⣀⣿⣿⣿⣿⣿⠋⢸⣿⠇⠀⢿⣿⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢱⠀⠀⠀⠀⣰⣿⣿⣿⣿⡟⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⡀⠀⠀⣠⡿⠋⣾⡿⣿⣇⠀⢸⡿⠀⠀⢸⣿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⣀⡼⠃⠀⠀⢠⣿⡿⣿⣿⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠃⠉⠙⠻⣶⡿⠋⢳⡘⢿⡀⢸⡇⠀⠀⠘⣏⢿⣷⡀⠀⠀⠀⠀⠀⠀⠀⠀⣆⠀⠀⠀⠀⢸⠋⠀⠀⠀⢠⣿⡟⢀⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠀⢀⣀⣃⣙⡂⠀⠙⢦⣳⡌⠀⠀⠀⠀⠙⢸⣿⣷⡄⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠿⠃⠀⠀⢀⣴⣿⠛⠀⢸⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⡀⠈⠉⠉⠉⠉⠙⠳⢤⣀⠙⢿⣆⠀⠀⠀⠀⠀⣹⣿⣿⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣴⣿⡟⣁⣤⣴⣾⠒⠶⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⡇⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⢮⣜⣧⡀⢠⣴⣾⣿⣿⠟⣿⣧⡀⠀⠀⠀⠀⠀⠀⣠⣤⣾⠟⢩⣿⡿⠀⠉⠉⠉⠉⢷⣄⡹⣦⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⢷⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⢿⡏⠁⢿⡟⠁⣼⠟⠉⠙⠶⠤⡤⠴⠞⠋⠁⢸⠏⠀⢸⣿⠃⠀⠀⠀⠀⠀⠀⠉⠉⠙⠺⢝⡲⢦⣀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-⠀⠙⢧⣀⠀⠀⠀⠀⠀⠀⠀⠱⣄⠀⠀⢻⣆⠀⠀⠐⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡞⠀⠀⢸⠇⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠉⠳⣬⡙⠲⣄⣺⠉⠙⠶⠶⠖⠒⠶⣤⣀⠀
-⣄⠀⠀⠙⢧⡀⠀⠀⠀⠀⠀⠀⠙⣄⠀⠀⢻⡄⠀⠀⢀⣀⠤⠶⣤⣀⣠⣤⣀⣀⣠⡀⠀⠀⠈⠀⠀⠀⠀⠀⢠⠟⣸⠃⠀⠀⠀⠀⠀⠀⠀⠙⢶⣄⡙⢷⣤⣀⣀⣤⠀⠀⠘⣧⡀
-⣿⣻⣶⣤⣤⣉⣷⡀⠀⠀⠀⠀⠀⠹⣦⠀⠈⣧⣴⡛⠋⢁⠀⠀⠸⣇⠀⠈⢻⡄⠈⠻⣦⣄⡀⠀⠀⠀⢀⡴⠋⡴⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠉⢻⣦⣌⣻⡍⣿⠀⠀⠀⠈⣇
-⣧⣻⣟⣽⣾⡏⣹⣟⢶⣦⣤⣀⠀⠀⠙⡆⠀⣧⠈⠙⢶⣾⡆⠀⠀⠹⡄⠀⠘⣇⠀⠀⠹⡎⠻⡆⠀⠀⠉⠠⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠀⢰⡏⠉⠉⢡⠇⠀⠀⠀⠀⠘
-⠞⢽⢿⠿⢿⡗⣴⣿⣿⣿⢼⡯⣿⡿⠶⣶⢤⣿⣀⣀⡀⢈⣙⢦⡀⠀⢹⡄⠀⢻⡄⠀⠀⢻⠀⢻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡾⠁⣰⠋⠀⠀⣰⠾⠀⠀⠀⢰⠀⠀
-⣫⢶⣼⣽⣟⠧⢈⣿⣿⣻⣻⣷⣼⡟⢿⣁⡰⣻⣿⣟⣿⣿⣽⣨⡇⠀⢸⡇⠀⢸⣿⠀⠀⢸⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⣾⠃⠀⠀⢻⣄⣠⠞⠁⠀⠀⠀⠀⠸⠀⠀
-⠘⠉⢀⢘⠋⣃⡉⣛⢛⢙⠙⣿⣿⣓⣶⣾⣿⣟⣻⣫⠾⢮⣿⣽⢳⣦⣼⡇⠀⢸⢿⣦⠀⠀⠀⣸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⡇⠀⡀⣘⣿⠋⠀⠀⠀⠀⠀⠀⠀⠁⠀⠀⠀⠀
-`,
 ];
 
-export const videos = [
-  {
-    id: "SI--bNjvQSg",
-    title: "reno",
-    embedUrl: "https://www.youtube.com/embed/SI--bNjvQSg",
-  },
-  {
-    id: "UM6B-B2rey8",
-    title: "santa cruz hike",
-    embedUrl: "https://www.youtube.com/embed/UM6B-B2rey8",
-  },
-  // {
-  //   id: "Lqy06QtT4m8",
-  //   title: "valorant edit",
-  //   embedUrl: "https://www.youtube.com/embed/Lqy06QtT4m8",
-  // },
-  // {
-  //   id: "-gcgE-FCVIE",
-  //   title: "anime edit",
-  //   embedUrl: "https://www.youtube.com/embed/-gcgE-FCVIE",
-  // },
-];
+export const videos: { id: string; title: string; embedUrl: string }[] = [];
 
-// Command Responses - Used in the daniel-code terminal
+// Command Responses - Used in the nishant-code terminal
 export const commandResponses = {
   about:
-    "hey, what's up?\n\ni'm daniel nguyen, a 21-year-old vietnamese-american from san jose, california. i'm a computer science student at san jose state university.\n\nright now, i'm a full stack engineer intern at twinmind, and i'm super hyped to be joining google (youtube partner program) for a software engineer internship in summer 2026. i'm all about building intuitive and useful stuff, whether it's web apps or just figuring out cool new tech.\n\ni'd say i'm pretty chill, curious about how things work, and i like to keep things clear and real. always trying to find that balance between work, life, and just growing as a person and an engineer.",
+    "hey, what's up?\n\ni'm nishant kumar, a software engineer from india with deep expertise in iOS development, on-device AI/ML, and mobile platform engineering.\n\ni'm currently a founding member of the iOS team at twinmind, where i helped scale the product from 2,500 to 350,000+ users. i report directly to the CTO and serve as the primary iOS subject-matter expert.\n\nbefore twinmind, i led iOS development at xplorazzi building AI-powered 3D scanning apps, and worked on a US FDA-registered physiotherapy wearable at startoon labs.\n\ni graduated with a b.tech in computer science from netaji subhash engineering college, kolkata with a cgpa of 8.62/10.",
 
   skills:
-    "alright, skills. i've picked up quite a bit over the internships and projects.\n\ni'd say my main ones are:\n\n• languages: java, python, javascript/typescript\n• frontend: react, next.js, tailwindcss\n• backend: node.js, express, fastapi, prisma\n• databases: postgresql, supabase, firebase\n• tools & platforms: docker, openai api integrations\n\ni'm always trying to dive deeper into new tech too, but those are my core strengths right now.",
+    "alright, here are my core skills:\n\n• languages: swift, python, javascript\n• iOS: swiftui, uikit, combine, storekit 2, arkit, roomplan, coredata, cloudkit\n• AI/ML: mlx, on-device ml, speech-to-text, nlp, llm apis\n• connectivity: corebluetooth (ble)\n• architecture: mvvm, ci/cd, test-driven development\n• tools: firebase, amplitude, revenucat, xcode, git\n\nalways learning and exploring new technologies.",
 
   goals:
-    "goals, for sure.\n\ni'd say a big one is just continuing to build impactful products that people actually use and find helpful. that's super motivating for me.\n\ntechnically, i'm always trying to level up my full-stack game, especially with architecting scalable systems. i also want to explore more into areas like distributed systems and maybe even some lower-level stuff in the future.\n\nbeyond tech, it's about maintaining that work-life balance – making sure i'm growing professionally but also staying healthy and keeping up with my interests like running or basketball. just continuous growth, really.",
+    "goals? for sure.\n\nmy main focus is building products that scale and delight users. i love the intersection of AI and mobile engineering — making powerful AI features run seamlessly on-device.\n\ni want to keep pushing the boundaries of what's possible with on-device ML and real-time processing on mobile platforms.\n\nbeyond tech, it's about continuous growth — both as an engineer and as a person.",
 
   funfact:
-    "alright, a fun fact.\n\ni actually used to be really into competitive gaming back in high school. i played a lot of valorant and peaked radiant (top 500 in north america). it taught me a lot about teamwork, strategy, and staying calm under pressure.\n\nnowadays, i channel that competitive energy into coding challenges and hackathons instead. still love gaming, but it's more casual now – helps me unwind after a long day of coding.",
+    "fun fact:\n\ni helped scale twinmind from 2,500 to over 350,000 users as a founding member of the iOS team. that journey from early startup to massive scale has been an incredible learning experience.\n\ni also built real-time speech-to-text pipelines using on-device ML, which is pretty cool when you think about it — your phone understanding what you're saying without sending data to the cloud.",
 
   contact:
-    "sure, you can reach me here:\n\n•  email: nguyendaniel1312@gmail.com\n•  linkedin: https://www.linkedin.com/in/daniel-nguyenn/\n•  github: https://github.com/deeedaniel\n\nfeel free to hit me up whenever.",
+    "sure, you can reach me here:\n\n• email: nishantminerva@gmail.com\n• linkedin: https://www.linkedin.com/in/nishantminerva\n• github: https://github.com/nishantminerva\n• phone: +91 9113392115\n\nfeel free to reach out anytime.",
 
   commands:
     "available commands:\n- about\n- experience\n- projects\n- skills\n- goals\n- funfact\n- contact",
