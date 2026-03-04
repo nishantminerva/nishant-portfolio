@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
 import type {
-  NowPlayingData,
-  TopTracksData,
   LeetCodeData,
 } from "./types/indexs";
 import {
@@ -12,7 +10,6 @@ import {
   commandResponses,
 } from "./data/info";
 import { Taskbar } from "./components/Taskbar";
-import { HeadphoneOff } from "lucide-react";
 import { Play, Pause, RotateCcw, Pencil, X } from "lucide-react";
 import LeetCodeCalendar from "./components/LeetCodeCalendar";
 import AnimatedEllipsis from "./components/AnimatedEllipsis";
@@ -43,8 +40,6 @@ const App = () => {
   const [expandWindow, setExpandWindow] = useState(String); // which window is expanded
   const [selectedWindow, setSelectedWindow] = useState("me"); // which window is selected
 
-  const [nowPlaying, setNowPlaying] = useState<NowPlayingData | null>(null); // now playing on spotify
-  const [topTracks, setTopTracks] = useState<TopTracksData | null>(null); // top tracks on spotify
   const [leetCode, setLeetCode] = useState<LeetCodeData | null>(null); // leetcode stats
   // const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -62,9 +57,6 @@ const App = () => {
   const [hoveredProjectIndex, setHoveredProjectIndex] = useState<number | null>(
     null,
   );
-  const [hoveredSongIndex, setHoveredSongIndex] = useState<number | null>(null);
-  const [selectedSongIndex, setSelectedSongIndex] = useState(0);
-
   // cli
   const [command, setCommand] = useState("");
   const [lastCommand, setLastCommand] = useState("");
@@ -87,14 +79,6 @@ const App = () => {
   const [isMediaPlayerOpen, setIsMediaPlayerOpen] = useState(false);
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
 
-  // audio
-  const [audioElement, setAudioElement] = useState<HTMLAudioElement | null>(
-    null,
-  );
-  const [isPlayingPreview, setIsPlayingPreview] = useState(false);
-  const [currentPreviewUrl, setCurrentPreviewUrl] = useState<string | null>(
-    null,
-  );
 
   // Add this near your other CLI state variables (around line 29)
   const [chatHistory, setChatHistory] = useState<
@@ -106,10 +90,6 @@ const App = () => {
     // if (count % 10 == 0) {
     setSelectedAscii(asciiList[Math.floor(Math.random() * asciiList.length)]);
     //}
-  }, []);
-
-  useEffect(() => {
-    fetchNowPlaying().then((data) => setNowPlaying(data));
   }, []);
 
   useEffect(() => {
@@ -146,16 +126,6 @@ const App = () => {
               meWindowRef.current.scrollTop += scrollAmount;
             }
           }
-        }
-      }
-      // if (selectedWindow === "music") {
-      //   if (e.key === "Enter") {
-      //     setExpandWindow("music");
-      //   }
-      // }
-      if (expandWindow === "music") {
-        if (e.key === "Enter") {
-          setExpandWindow("");
         }
       }
       if (selectedWindow === "experience") {
@@ -269,50 +239,6 @@ const App = () => {
           }
         }
       }
-      if (selectedWindow === "music") {
-        // Create combined list: nowPlaying + topTracks
-        const allSongs = [];
-        if (nowPlaying && nowPlaying.item) {
-          allSongs.push(nowPlaying.item);
-        }
-        if (topTracks && topTracks.tracks) {
-          // If window is not expanded, only show first 5 tracks
-          const tracksToShow =
-            expandWindow === "music"
-              ? topTracks.tracks
-              : topTracks.tracks.slice(0, 5);
-          allSongs.push(...tracksToShow);
-        }
-
-        if (allSongs.length > 0) {
-          if (e.key === "ArrowUp") {
-            e.preventDefault();
-            const base =
-              hoveredSongIndex !== null ? hoveredSongIndex : selectedSongIndex;
-            const newIndex = base === 0 ? allSongs.length - 1 : base - 1;
-            setSelectedSongIndex(newIndex);
-            setHoveredSongIndex(newIndex);
-          } else if (e.key === "ArrowDown") {
-            e.preventDefault();
-            const base =
-              hoveredSongIndex !== null ? hoveredSongIndex : selectedSongIndex;
-            const newIndex = (base + 1) % allSongs.length;
-            setSelectedSongIndex(newIndex);
-            setHoveredSongIndex(newIndex);
-          } else if (e.key === "Enter") {
-            e.preventDefault();
-            const song = allSongs[selectedSongIndex];
-            if (song.preview_url) {
-              // If this song is already playing, stop it. Otherwise play it.
-              if (isPlayingPreview && currentPreviewUrl === song.preview_url) {
-                handlePreviewClick(song.preview_url); // This will stop it
-              } else {
-                handlePreviewClick(song.preview_url); // This will play it
-              }
-            }
-          }
-        }
-      }
       if (selectedWindow === "leetcode") {
         if (e.key === "Enter") {
           setExpandWindow("leetcode");
@@ -334,18 +260,12 @@ const App = () => {
     projectIndex,
     hoveredExperienceIndex,
     hoveredProjectIndex,
-    hoveredSongIndex,
-    selectedSongIndex,
     selectProject,
     selectedLinkIndex,
     selectExperience,
     selectedExperienceLinkIndex,
     isResumeOpen,
     isMediaPlayerOpen,
-    topTracks,
-    nowPlaying,
-    isPlayingPreview,
-    currentPreviewUrl,
   ]);
 
   // Reset selected link index when project changes - default to "back" button
@@ -378,52 +298,6 @@ const App = () => {
     }
   }, [selectExperience]);
 
-  // Spotify functions
-  async function fetchNowPlaying() {
-    const res = await fetch("/api/now-playing");
-    if (!res.ok) {
-      console.error(await res.text());
-      return null;
-    }
-    return await res.json();
-  }
-
-  // Handle preview playback
-  const handlePreviewClick = (previewUrl: string | null) => {
-    if (!previewUrl) return;
-
-    // If clicking the same song that's currently playing, pause it
-    if (
-      audioElement &&
-      currentPreviewUrl === previewUrl &&
-      !audioElement.paused
-    ) {
-      audioElement.pause();
-      setIsPlayingPreview(false);
-      return;
-    }
-
-    // Stop previous audio if playing
-    if (audioElement) {
-      audioElement.pause();
-      audioElement.currentTime = 0;
-    }
-
-    // Create and play new audio
-    const audio = new Audio(previewUrl);
-    audio.volume = 0.1; // Set volume to 50%
-    audio.play();
-    setAudioElement(audio);
-    setIsPlayingPreview(true);
-    setCurrentPreviewUrl(previewUrl);
-
-    // Reset when audio ends
-    audio.onended = () => {
-      setIsPlayingPreview(false);
-      setCurrentPreviewUrl(null);
-    };
-  };
-
   async function fetchLeetCode() {
     const res = await fetch("/api/leetcode");
     if (!res.ok) {
@@ -432,43 +306,6 @@ const App = () => {
     }
     return await res.json();
   }
-
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      const now = await fetchNowPlaying();
-      setNowPlaying(now);
-    }, 60000); // every minute
-
-    // Cleanup function to clear the interval when the component unmounts
-    return () => clearInterval(interval);
-  }, []); // Empty dependency array ensures this runs only once on mount
-
-  // Cleanup audio when component unmounts
-  useEffect(() => {
-    return () => {
-      if (audioElement) {
-        audioElement.pause();
-        audioElement.currentTime = 0;
-      }
-    };
-  }, [audioElement]);
-
-  useEffect(() => {
-    async function fetchTopTracks() {
-      const res = await fetch("/api/top-tracks"); // on Vercel this resolves to your function
-      if (!res.ok) {
-        console.error(await res.text());
-        return null;
-      }
-      return await res.json();
-    }
-
-    // Wrap the async call in a function and invoke it
-    (async () => {
-      const top = await fetchTopTracks();
-      setTopTracks(top);
-    })();
-  }, []);
 
   // ask question to Gemini with client-side streaming
   // Replace the existing askQuestion function (lines 276-314)
@@ -922,8 +759,8 @@ const App = () => {
     if (isResumeOpen || isMediaPlayerOpen) return;
 
     const windowOrder = isTimerOpen
-      ? ["me", "experience", "projects", "music", "timer", "cli"]
-      : ["me", "experience", "projects", "music", "leetcode", "cli"];
+      ? ["me", "experience", "projects", "timer", "cli"]
+      : ["me", "experience", "projects", "leetcode", "cli"];
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (expandWindow) return;
@@ -960,7 +797,7 @@ const App = () => {
   // Handle closing timer when it's the selected window
   useEffect(() => {
     if (!isTimerOpen && selectedWindow === "timer") {
-      setSelectedWindow("music");
+      setSelectedWindow("projects");
       setExpandWindow("");
     }
   }, [isTimerOpen, selectedWindow]);
@@ -1344,214 +1181,6 @@ const App = () => {
                 about me!
               </button>
             </div>
-          </div>
-        </div>
-
-        {/* Music */}
-        <div
-          className={` ${windowThemeClass} ${
-            isTimerOpen
-              ? "col-span-2 lg:col-span-1"
-              : "col-span-2 lg:col-span-1 lg:row-span-1"
-          } rounded-xl order-2 ${
-            expandWindow ? "opacity-0" : ""
-          } transition-opacity duration-500`}
-          onClick={() => {
-            setSelectedWindow("music");
-            console.log(selectedWindow);
-          }}
-        >
-          <p
-            className={`rounded-t-xl text-sm text-center relative ${headerClass(
-              selectedWindow === "music",
-            )}`}
-          >
-            music - zsh
-            <button className="rounded-full p-1 bg-red-500 absolute right-10 top-1/2 -translate-y-1/2" />
-            <button className="rounded-full p-1 bg-yellow-500 absolute right-6 top-1/2 -translate-y-1/2" />
-            <button
-              className="rounded-full p-1 bg-green-500 absolute right-2 top-1/2 -translate-y-1/2"
-              onClick={() => setExpandWindow("music")}
-            />
-          </p>
-          <div className="mt-2 mx-4">
-            {nowPlaying && nowPlaying.item ? (
-              <div
-                className="flex items-center"
-                onMouseEnter={() => setHoveredSongIndex(0)}
-                onMouseLeave={() => setHoveredSongIndex(null)}
-              >
-                <div className="relative group mr-6">
-                  <img
-                    src={nowPlaying.item.album_image}
-                    alt={nowPlaying.item.album}
-                    className={`w-16 h-16 object-cover rounded-md ${
-                      nowPlaying.item.album === "PARTYNEXTDOOR 4 (P4)" ||
-                      nowPlaying.item.album === "L o s e M y M i n d" ||
-                      nowPlaying.item.album === "VULTURES 1"
-                        ? "blur-sm"
-                        : ""
-                    } ${
-                      nowPlaying.item.preview_url
-                        ? "cursor-pointer hover:opacity-80 transition-opacity"
-                        : ""
-                    }`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      if (nowPlaying.item?.preview_url) {
-                        handlePreviewClick(nowPlaying.item.preview_url);
-                      }
-                    }}
-                    title={
-                      nowPlaying.item.preview_url
-                        ? "Click to play preview"
-                        : "No preview available"
-                    }
-                  />
-                  {nowPlaying.item.preview_url && (
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      {isPlayingPreview &&
-                      currentPreviewUrl === nowPlaying.item.preview_url ? (
-                        <Pause className="w-6 h-6 text-white drop-shadow-lg" />
-                      ) : (
-                        <Play className="w-6 h-6 text-white drop-shadow-lg transition-opacity" />
-                      )}
-                    </div>
-                  )}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <a
-                    className={`font-bold truncate hover:underline block ${
-                      hoveredSongIndex === 0 ||
-                      (selectedSongIndex === 0 && hoveredSongIndex === null)
-                        ? "underline"
-                        : ""
-                    }`}
-                    href={nowPlaying.item.spotify_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {nowPlaying.item.name}
-                  </a>
-                  <p className="text-sm text-gray-400 truncate">
-                    {nowPlaying.item.artists.join(", ")}
-                  </p>
-                  {/* <p className="text-sm text-gray-500">
-                    {nowPlaying.item.album}
-                  </p> */}
-                </div>
-              </div>
-            ) : (
-              <p>
-                <div className="flex items-center">
-                  <HeadphoneOff
-                    className={`w-16 h-16 p-3 rounded-md mr-4 ${
-                      isDark ? "bg-gray-800" : "bg-gray-200"
-                    }`}
-                  />
-                  <div>
-                    <p className="text-xs lg:text-sm font-medium">
-                      loading music...
-                    </p>
-                    <p className="text-xs text-gray-400">
-                      visit my{" "}
-                      <a
-                        href={personalInfo.socialLinks.spotify}
-                        className={`${
-                          isDark ? "text-blue-400" : "text-[#2A8EE0]"
-                        } underline`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        spotify
-                      </a>
-                      !
-                    </p>
-                  </div>
-                </div>
-              </p>
-            )}
-            {topTracks && topTracks.tracks ? (
-              <div className="flex flex-col mb-3">
-                <p
-                  className={`text-sm ${
-                    isDark ? "text-gray-200" : "text-gray-800"
-                  } mt-4`}
-                >
-                  Top Tracks
-                </p>
-                {topTracks.tracks.slice(0, 5).map((track, index) => {
-                  // Offset index by 1 if nowPlaying exists (since it takes index 0)
-                  const actualIndex =
-                    nowPlaying && nowPlaying.item ? index + 1 : index;
-                  const isHovered = hoveredSongIndex === actualIndex;
-                  const isSelected =
-                    actualIndex === selectedSongIndex &&
-                    hoveredSongIndex === null;
-                  const shouldHighlight = isHovered || isSelected;
-
-                  return (
-                    <div
-                      key={track.id}
-                      className="flex items-center mt-1.5"
-                      onMouseEnter={() => setHoveredSongIndex(actualIndex)}
-                      onMouseLeave={() => setHoveredSongIndex(null)}
-                    >
-                      <div className="relative group mr-4">
-                        <img
-                          src={track.album_image}
-                          alt={track.album}
-                          className={`w-8 h-8 object-cover rounded-md ${
-                            track.preview_url
-                              ? "cursor-pointer hover:opacity-80 transition-opacity"
-                              : ""
-                          }`}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            if (track.preview_url) {
-                              handlePreviewClick(track.preview_url);
-                            }
-                          }}
-                          title={
-                            track.preview_url
-                              ? "Click to play preview"
-                              : "No preview available"
-                          }
-                        />
-                        {track.preview_url && (
-                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            {isPlayingPreview &&
-                            currentPreviewUrl === track.preview_url ? (
-                              <Pause className="w-4 h-4 text-white drop-shadow-lg" />
-                            ) : (
-                              <Play className="w-4 h-4 text-white drop-shadow-lg transition-opacity" />
-                            )}
-                          </div>
-                        )}
-                      </div>
-                      <a
-                        href={track.spotify_url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`text-sm text-gray-400 truncate flex-1 min-w-0 hover:underline ${
-                          shouldHighlight ? "underline" : ""
-                        }`}
-                      >
-                        {track.name}
-                      </a>
-                    </div>
-                  );
-                })}
-              </div>
-            ) : (
-              <p
-                className={`text-sm text-gray-200 mt-4 ${
-                  isDark ? "text-gray-200" : "text-gray-800"
-                }`}
-              >
-                fetching top tracks...
-              </p>
-            )}
           </div>
         </div>
 
@@ -2382,200 +2011,6 @@ const App = () => {
                   </div>
                 )}
               </>
-            )}
-            {expandWindow === "music" && (
-              <div
-                className={`w-full h-full lg:w-full lg:h-full max-w-4xl max-h-[90vh] lg:max-w-none lg:max-h-none ${windowThemeClass} rounded-xl overflow-y-auto overscroll-none`}
-              >
-                <p
-                  className={`rounded-t-xl text-sm text-center sticky top-0 ${headerClass(
-                    selectedWindow === "music",
-                  )}`}
-                >
-                  music - zsh
-                  <button
-                    className="rounded-full p-1 bg-red-500 absolute right-10 top-1/2 -translate-y-1/2"
-                    onClick={() => setExpandWindow("")}
-                  />
-                  <button
-                    className="rounded-full p-1 bg-yellow-500 absolute right-6 top-1/2 -translate-y-1/2"
-                    onClick={() => setExpandWindow("")}
-                  />
-                  <button
-                    className="rounded-full p-1 bg-green-500 absolute right-2 top-1/2 -translate-y-1/2"
-                    onClick={() => setExpandWindow("music")}
-                  />
-                </p>
-                <div className="mt-2 mx-4">
-                  {nowPlaying && nowPlaying.item ? (
-                    <div
-                      className="flex items-center"
-                      onMouseEnter={() => setHoveredSongIndex(0)}
-                      onMouseLeave={() => setHoveredSongIndex(null)}
-                    >
-                      <div className="relative group mr-6">
-                        <img
-                          src={nowPlaying.item.album_image}
-                          alt={nowPlaying.item.album}
-                          className={`w-16 h-16 object-cover rounded-md ${
-                            nowPlaying.item.preview_url
-                              ? "cursor-pointer hover:opacity-80 transition-opacity"
-                              : ""
-                          }`}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            if (nowPlaying.item?.preview_url) {
-                              handlePreviewClick(nowPlaying.item.preview_url);
-                            }
-                          }}
-                          title={
-                            nowPlaying.item.preview_url
-                              ? "Click to play preview"
-                              : "No preview available"
-                          }
-                        />
-                        {nowPlaying.item.preview_url && (
-                          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            {isPlayingPreview &&
-                            currentPreviewUrl ===
-                              nowPlaying.item.preview_url ? (
-                              <Pause className="w-6 h-6 text-white drop-shadow-lg" />
-                            ) : (
-                              <Play className="w-6 h-6 text-white drop-shadow-lg transition-opacity" />
-                            )}
-                          </div>
-                        )}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <a
-                          href={nowPlaying.item.spotify_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`font-bold truncate hover:underline ${
-                            hoveredSongIndex === 0 ||
-                            (selectedSongIndex === 0 &&
-                              hoveredSongIndex === null)
-                              ? "underline"
-                              : ""
-                          }`}
-                        >
-                          {nowPlaying.item.name}
-                        </a>
-                        <p className="text-sm text-gray-400 truncate">
-                          {nowPlaying.item.artists.join(", ")}
-                        </p>
-                        <p className="text-sm text-gray-500 truncate">
-                          {nowPlaying.item.album}
-                        </p>
-                      </div>
-                    </div>
-                  ) : (
-                    <p>
-                      <div className="flex items-center">
-                        <HeadphoneOff
-                          className={`w-16 h-16 p-3 rounded-md mr-4 ${
-                            isDark ? "bg-gray-800" : "bg-gray-200"
-                          }`}
-                        />
-                        <div>
-                          <p className="text-xs lg:text-sm font-medium">
-                            loading music...
-                          </p>
-                          <p className="text-xs text-gray-400">
-                            visit my{" "}
-                            <a
-                              href={personalInfo.socialLinks.spotify}
-                              className="text-blue-400 underline"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              spotify
-                            </a>
-                            !
-                          </p>
-                        </div>
-                      </div>
-                    </p>
-                  )}
-                  {topTracks && topTracks.tracks ? (
-                    <div className="flex flex-col">
-                      <p
-                        className={`text-sm ${
-                          isDark ? "text-gray-200" : "text-gray-800"
-                        } mt-4`}
-                      >
-                        Top Tracks
-                      </p>
-                      {topTracks.tracks.map((track, index) => {
-                        // Offset index by 1 if nowPlaying exists (since it takes index 0)
-                        const actualIndex =
-                          nowPlaying && nowPlaying.item ? index + 1 : index;
-                        const isHovered = hoveredSongIndex === actualIndex;
-                        const isSelected =
-                          actualIndex === selectedSongIndex &&
-                          hoveredSongIndex === null;
-                        const shouldHighlight = isHovered || isSelected;
-
-                        return (
-                          <div
-                            key={track.id}
-                            className="flex items-center mt-1.5"
-                            onMouseEnter={() =>
-                              setHoveredSongIndex(actualIndex)
-                            }
-                            onMouseLeave={() => setHoveredSongIndex(null)}
-                          >
-                            <div className="relative group mr-4">
-                              <img
-                                src={track.album_image}
-                                alt={track.album}
-                                className={`w-8 h-8 object-cover rounded-md ${
-                                  track.preview_url
-                                    ? "cursor-pointer hover:opacity-80 transition-opacity"
-                                    : ""
-                                }`}
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  if (track.preview_url) {
-                                    handlePreviewClick(track.preview_url);
-                                  }
-                                }}
-                                title={
-                                  track.preview_url
-                                    ? "Click to play preview"
-                                    : "No preview available"
-                                }
-                              />
-                              {track.preview_url && (
-                                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                  {isPlayingPreview &&
-                                  currentPreviewUrl === track.preview_url ? (
-                                    <Pause className="w-4 h-4 text-white drop-shadow-lg" />
-                                  ) : (
-                                    <Play className="w-4 h-4 text-white drop-shadow-lg transition-opacity" />
-                                  )}
-                                </div>
-                              )}
-                            </div>
-                            <a
-                              href={track.spotify_url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className={`text-sm text-gray-400 hover:underline ${
-                                shouldHighlight ? "underline" : ""
-                              }`}
-                            >
-                              {track.name}
-                            </a>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  ) : (
-                    <p>top tracks loading...</p>
-                  )}
-                </div>
-              </div>
             )}
             {expandWindow === "leetcode" && (
               <div
